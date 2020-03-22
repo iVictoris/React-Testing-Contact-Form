@@ -62,6 +62,7 @@ const ContactForm = () => {
           </pre>
         )}
         <button
+          data-testid="clicks"
           onClick={e => {
             e.preventDefault();
             setNumClicks(numClicks + 1);
