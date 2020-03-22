@@ -43,3 +43,11 @@ test('should not allow the submission of form with required fields not filled in
   expect(getAllByTestId('error').length).toBe(3);
   expect(onSubmit).not.toHaveBeenCalled();
 });
+
+test('should increment numClicks by 1, from 0 => 1', () => {
+  const { getByTestId } = render(<ContactForm />);
+  const button = getByTestId('clicks');
+  fireEvent.click(button);
+  let count = Number.parseInt(button.textContent.split(': ')[1]);
+  expect(count).toBe(1);
+});
